@@ -1,23 +1,58 @@
 #include "../header/Bureaucrat.class.hpp"
+#include <exception>
+
+void try_catch(int grade)
+{
+	try
+	{
+		Bureaucrat	bureau("Bureau", grade);
+		std::cout
+		<< "SUCCESFULL INSTANTIATION!" << std::endl;
+	}
+	catch (std::exception &e) 
+	{
+		std::cout
+		<< "UNSUCCESFULL: Exception arose. " 
+		<<e.what() << ": " << grade
+		<< std::endl;
+	}
+}
+
+void instantiation()
+{
+	std::cout
+	<< "\n** TESTING INSTANTIATION RANGES **\n";
+
+	int	grades[7] = {-500, 0, 1, 50, 150, 151, 300};
+	int	i = 0;
+
+	while (i < 7)
+	{
+		std::cout
+		<< "\n...Testing grade " << grades[i]
+		<< std::endl;
+		try_catch(grades[i++]);
+	}
+}
+
+void overload()
+{
+	std::cout << "\nTESTING << OVERLOAD\n\n";
+
+	Bureaucrat	b("Bureau2", 1);
+	Bureaucrat	g("Bureau6", 50);
+	Bureaucrat	c("Bureau3", 150);
+
+	std::cout << b << std::endl;
+	std::cout << g << std::endl;
+	std::cout << c << std::endl;
+
+}
 
 int main(void)
 {
-	std::cout << "\nTESTING INSTANTIATION RANGES\n\n";
-	//test instantiation ranges
-	
-	Bureaucrat	f("Bureau0", -500);
-	Bureaucrat	a("Bureau1", 0);
-	Bureaucrat	b("Bureau2", 1);
-	Bureaucrat	c("Bureau3", 150);
-	Bureaucrat	d("Bureau4", 151);
-	Bureaucrat	e("Bureau5", 300);
-
-	std::cout << f << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << c << std::endl;
-	std::cout << d << std::endl;
-	std::cout << e << std::endl;
+	instantiation();
+	overload();
 	//test increment
 	//test decrement
 	return (0);

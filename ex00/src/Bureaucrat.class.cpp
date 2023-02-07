@@ -50,23 +50,12 @@ Bureaucrat::Bureaucrat(void) : name("Default"), grade(1)
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 {
-	try
-	{
-		if (grade > min_grade)
-			throw Bureaucrat::GradeTooLowException();
-		else if (grade < max_grade)
-			throw Bureaucrat::GradeTooHighException();
-		else	
-			this->grade = grade;
-	}
-	catch (std::exception &e)
-	{
-		std::cout 
-		<< name << " threw the following exception: "
-		<< e.what() << " with the grade " << grade
-		<< std::endl;
-	}
-	std::cout << Bureaucrat << std::endl;
+	if (grade > min_grade)
+		throw Bureaucrat::GradeTooLowException();
+	else if (grade < max_grade)
+		throw Bureaucrat::GradeTooHighException();
+	else
+		this->grade = grade;
 	return ;
 }
 
