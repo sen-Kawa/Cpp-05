@@ -2,7 +2,6 @@
 # define BUREAUCRAT_CLASS_HPP
 
 #include <iostream>
-#include <stdexcept>
 
 class Bureaucrat
 {
@@ -11,14 +10,13 @@ class Bureaucrat
 		const std::string	name;
 		int					grade;
 		
-		void	GradeTooLow();
-		void	GradeTooHigh();
-
-
 	public:
 
 		int			getGrade(void) const;
 		std::string	getName(void) const;
+		
+		void		incrementGrade();
+		void		decrementGrade();
 
 		Bureaucrat(void);
 		Bureaucrat(std::string name, int grade);
@@ -26,8 +24,23 @@ class Bureaucrat
 		Bureaucrat&	operator=(Bureaucrat const &assign);
 		~Bureaucrat(void);
 
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Grade too low");
+				}
+		};
 
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Grade too high");
+				}
+		};
 };
 
 #endif
-
