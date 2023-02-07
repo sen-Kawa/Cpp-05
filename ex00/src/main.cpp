@@ -1,13 +1,31 @@
 #include "../header/Bureaucrat.class.hpp"
 #include <exception>
 
+void increment(void)
+{
+	std::cout
+	<< "\n** TESTING INCREMENT **\n";
+
+	int	grades[7] = {150, 75, 20, 50, 1, 2, 3};
+	int	i = 0;
+
+	while (i < 7)
+	{
+		std::cout
+		<< "\n...Testing increment on grade "
+		<< grades[i] << std::endl;
+		try_catch(grades[i++]);
+	}
+	return ;
+}
+
 void try_catch(int grade)
 {
 	try
 	{
 		Bureaucrat	bureau("Bureau", grade);
 		std::cout
-		<< "SUCCESFULL INSTANTIATION!" << std::endl;
+		<< "SUCCESFULL!" << std::endl;
 	}
 	catch (std::exception &e) 
 	{
@@ -55,14 +73,14 @@ void overload(void)
 void menu(void)
 {
 	std::cout
-	<< "Mommy, when I grow up, I want to be a bureaucrat!\n"
+	<< "\n\nMommy, when I grow up, I want to be a bureaucrat!\n"
 	<< "\nBureaucrat UNIT TESTER\n"
 	<< "\nChoose test to run:\n"
 	<< " - [IR] Instantiation range\n"
-	<< " - [O]Printing verload\n"
+	<< " - [O] Printing overload\n"
 	<< " - [D] Decrement\n"
 	<< " - [IN] Increment\n"
-	<< " - [A] All"
+	<< " - [A] All\n"
 	<< " - [E] Exit"
 	<< std::endl;
 }
@@ -79,9 +97,10 @@ int main(void)
 			instantiation();
 		if (test == "O" || test == "A")
 			overload();
-		//test increment
-		//test decrement
+		if (test == "D" || test == "A")
+			increment();
+		if (test == "IN" || test == "A")
+			decrement();
 	}
 	return (0);
 }
-

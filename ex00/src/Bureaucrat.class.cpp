@@ -14,32 +14,17 @@ std::string  Bureaucrat::getName(void) const
 
 void Bureaucrat::incrementGrade(void)
 {
-	try
-	{
-		grade--;
-		if (grade < max_grade)
-			throw Bureaucrat::GradeTooHighException();
-	}
-	catch (std::exception &e)
-	{
-		std::cout 
-		<< e.what() << std::endl;
-	}
+	if (grade < max_grade)
+		throw Bureaucrat::GradeTooHighException();
+	grade--;
 	return ;
 }
 
 void Bureaucrat::decrementGrade(void)
 {
-	try
-	{
-		grade++;
-		if (grade > min_grade)
-			throw Bureaucrat::GradeTooLowException();
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	if (grade >= min_grade)
+		throw Bureaucrat::GradeTooLowException();
+	grade++;
 	return ;
 }
 
