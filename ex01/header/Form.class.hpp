@@ -10,19 +10,24 @@ class Form
 	private:
 
 		const std::string	name;
-		bool				if_signed;
-		const int			grade;
-		const int			required_grade;
+		bool				if_signed = 0;
+		const int			sign_grade;
+		const int			execute_grade;
+		static const int	min_grade = 150;
+		static const int	max_grade = 1;
 
 
 	public:
 
 		std::string	getName(void) const;
 		bool		getIfSigned(void) const;
-		int			getGrade(void) const;
-		int			getRequiredGrade(void) const;
+		int			getSignGrade(void) const;
+		int			getExecuteGrade(void) const;
+		
+		void		beSigned(Bureaucrat &bureau);
 
 		Form(void);
+		Form(const std::string name, const int sign_grade, const int execute_grade);
 		Form(Form const &src);
 		Form&	operator=(Form const &assign);
 		~Form(void);
