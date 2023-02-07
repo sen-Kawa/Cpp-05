@@ -12,7 +12,7 @@ OBJ_DIR = ./.build/
 
 LIBS = -lm
 
-SRCS = main.cpp Dog.class.cpp
+SRCS = main.cpp Bureaucrat.class.cpp
 
 RM = rm -rf
 

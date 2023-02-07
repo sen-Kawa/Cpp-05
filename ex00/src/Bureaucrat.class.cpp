@@ -1,4 +1,5 @@
 #include "../header/Bureaucrat.class.hpp"
+#include <exception>
 #include <ostream>
 
 int Bureaucrat::getGrade(void) const
@@ -13,17 +14,32 @@ std::string  Bureaucrat::getName(void) const
 
 void Bureaucrat::incrementGrade(void)
 {
-	grade--;
-	if (grade < max_grade)
-		throw Bureaucrat::GradeTooHighException();
+	try
+	{
+		grade--;
+		if (grade < max_grade)
+			throw Bureaucrat::GradeTooHighException();
+	}
+	catch (std::exception &e)
+	{
+		std::cout 
+		<< e.what() << std::endl;
+	}
 	return ;
 }
 
 void Bureaucrat::decrementGrade(void)
 {
-	grade++;
-	if (grade > min_grade)
-		throw Bureaucrat::GradeTooLowException();
+	try
+	{
+		grade++;
+		if (grade > min_grade)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	return ;
 }
 
@@ -34,12 +50,23 @@ Bureaucrat::Bureaucrat(void) : name("Default"), grade(1)
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 {
-	if (grade > min_grade)
-		throw Bureaucrat::GradeTooLowException();
-	else if (grade < max_grade)
-		throw Bureaucrat::GradeTooHighException();
-	else	
-		this->grade = grade;
+	try
+	{
+		if (grade > min_grade)
+			throw Bureaucrat::GradeTooLowException();
+		else if (grade < max_grade)
+			throw Bureaucrat::GradeTooHighException();
+		else	
+			this->grade = grade;
+	}
+	catch (std::exception &e)
+	{
+		std::cout 
+		<< name << " threw the following exception: "
+		<< e.what() << " with the grade " << grade
+		<< std::endl;
+	}
+	std::cout << Bureaucrat << std::endl;
 	return ;
 }
 
