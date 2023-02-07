@@ -10,7 +10,7 @@ std::string  Bureaucrat::getName(void) const
 	return (this->name);
 }
 
-void Bureaucrat::incrementGrade()
+void Bureaucrat::incrementGrade(void)
 {
 	grade--;
 	if (grade < max_grade)
@@ -18,7 +18,7 @@ void Bureaucrat::incrementGrade()
 	return ;
 }
 
-void Bureaucrat::decrementGrade()
+void Bureaucrat::decrementGrade(void)
 {
 	grade++;
 	if (grade > min_grade)
