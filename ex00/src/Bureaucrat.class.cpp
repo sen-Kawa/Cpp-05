@@ -10,6 +10,22 @@ std::string  Bureaucrat::getName(void) const
 	return (this->name);
 }
 
+void Bureaucrat::incrementGrade()
+{
+	grade--;
+	if (grade < max_grade)
+		throw Bureaucrat::GradeTooHighException();
+	return ;
+}
+
+void Bureaucrat::decrementGrade()
+{
+	grade++;
+	if (grade > min_grade)
+		throw Bureaucrat::GradeTooLowException();
+	return ;
+}
+
 Bureaucrat::Bureaucrat(void) : name("Default"), grade(1)
 {
 	return ;
@@ -17,9 +33,9 @@ Bureaucrat::Bureaucrat(void) : name("Default"), grade(1)
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 {
-	if (grade > 150)
+	if (grade > min_grade)
 		throw Bureaucrat::GradeTooLowException();
-	else if (grade < 1)
+	else if (grade < max_grade)
 		throw Bureaucrat::GradeTooHighException();
 	else	
 		this->grade = grade;

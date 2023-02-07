@@ -9,6 +9,8 @@ class Bureaucrat
 
 		const std::string	name;
 		int					grade;
+		const int			max_grade = 1;
+		const int			min_grade = 150;
 		
 	public:
 
