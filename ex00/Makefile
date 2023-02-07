@@ -12,7 +12,7 @@ OBJ_DIR = ./.build/
 
 LIBS = -lm
 
-SRCS = main.cpp Bureaucrat.class.cpp
+SRCS = main.cpp tests.cpp Bureaucrat.class.cpp
 
 RM = rm -rf
 

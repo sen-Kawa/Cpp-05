@@ -14,7 +14,7 @@ std::string  Bureaucrat::getName(void) const
 
 void Bureaucrat::incrementGrade(void)
 {
-	if (grade < max_grade)
+	if (grade <= max_grade)
 		throw Bureaucrat::GradeTooHighException();
 	grade--;
 	return ;

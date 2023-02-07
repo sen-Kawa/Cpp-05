@@ -1,74 +1,11 @@
 #include "../header/Bureaucrat.class.hpp"
 #include <exception>
 
-void increment(void)
-{
-	std::cout
-	<< "\n** TESTING INCREMENT **\n";
-
-	int	grades[7] = {150, 75, 20, 50, 1, 2, 3};
-	int	i = 0;
-
-	while (i < 7)
-	{
-		std::cout
-		<< "\n...Testing increment on grade "
-		<< grades[i] << std::endl;
-		try_catch(grades[i++]);
-	}
-	return ;
-}
-
-void try_catch(int grade)
-{
-	try
-	{
-		Bureaucrat	bureau("Bureau", grade);
-		std::cout
-		<< "SUCCESFULL!" << std::endl;
-	}
-	catch (std::exception &e) 
-	{
-		std::cout
-		<< "UNSUCCESFULL: Exception arose.\n" 
-		<<e.what() << ": " << grade
-		<< std::endl;
-	}
-}
-
-void instantiation(void)
-{
-	std::cout
-	<< "\n** TESTING INSTANTIATION RANGES **\n";
-
-	int	grades[7] = {-500, 0, 1, 50, 150, 151, 300};
-	int	i = 0;
-
-	while (i < 7)
-	{
-		std::cout
-		<< "\n...Testing grade " << grades[i]
-		<< std::endl;
-		try_catch(grades[i++]);
-	}
-}
-
-void overload(void)
-{
-	std::cout << "\n** TESTING << OVERLOAD **\n\n";
-
-	int	i = 0;
-	int	grades[7] = {1, 15, 23, 50, 150, 78, 96};
-	while (i < 7)
-	{
-		std::cout
-		<< "\n...Instantiating with grade "
-		<< grades[i] << std::endl;
-		Bureaucrat	b("Bureau", grades[i]);
-		std::cout << b << std::endl;
-		i++;
-	}
-}
+void try_catch(int grade, int test);
+void overload(void);
+void decrement(void);
+void increment(void);
+void instantiation(void);
 
 void menu(void)
 {
@@ -97,9 +34,9 @@ int main(void)
 			instantiation();
 		if (test == "O" || test == "A")
 			overload();
-		if (test == "D" || test == "A")
-			increment();
 		if (test == "IN" || test == "A")
+			increment();
+		if (test == "D" || test == "A")
 			decrement();
 	}
 	return (0);
