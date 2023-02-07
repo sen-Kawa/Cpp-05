@@ -1,4 +1,5 @@
 #include "../header/Bureaucrat.class.hpp"
+#include <ostream>
 
 int Bureaucrat::getGrade(void) const
 {
@@ -48,7 +49,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &src)
 	return ;
 }
 
-Bureaucrat &	Bureaucrat::operator=(const Bureaucrat &assign)
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat &assign)
 {
 	this->grade = assign.grade;
 	return (*this);
@@ -57,4 +58,11 @@ Bureaucrat &	Bureaucrat::operator=(const Bureaucrat &assign)
 Bureaucrat::~Bureaucrat(void)
 {
 	return ;
+}
+
+std::ostream& operator<<(std::ostream &o, Bureaucrat const &i)
+{
+	o << i.getName() 
+	<< ", bureaucrat grade " << i.getGrade();
+	return (o);
 }
