@@ -24,19 +24,24 @@ int Form::getExecuteGrade(void) const
 
 void Form::beSigned(Bureaucrat &bureau)
 {
-	if (bureau.getGrade() < execute_grade)
+	if (bureau.getGrade() > sign_grade)
 		throw Form::GradeTooLowException();
 	if_signed = 1;
 	return ;
 }
 
-Form::Form(void) : name("Default Form"), execute_grade(75), sign_grade(1)
+Form::Form(void) : name("Default Form"), sign_grade(75), execute_grade(1), if_signed(false)
 {
 	return ;
 }
 
 Form::Form(const std::string name, const int sign_grade, const int execute_grade) : name(name), sign_grade(sign_grade), execute_grade(execute_grade)
 {
+	if_signed = false;
+	if (execute_grade > min_grade)
+		throw Form::GradeTooLowException();
+	else if (execute_grade < max_grade)
+		throw Form::GradeTooHighException();
 	return ;
 }
 
@@ -67,8 +72,7 @@ std::ostream& operator<<(std::ostream &o, Form const &i)
 		status = "signed";
 
 	o << i.getName() << ", is " << status 
-	<< ", the signing grade is "<< i.getSignGrade()
-	<< ", the executing grade is "<< i.getExecuteGrade()
-	<< std::endl;
+	<< ", the signing grade is " << i.getSignGrade()
+	<< ", the executing grade is " << i.getExecuteGrade();
 	return (o);
 }

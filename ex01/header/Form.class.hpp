@@ -13,11 +13,11 @@ class Form
 	private:
 
 		const std::string	name;
-		bool				if_signed = 0;
 		const int			sign_grade;
 		const int			execute_grade;
 		static const int	min_grade = 150;
 		static const int	max_grade = 1;
+		bool				if_signed;
 
 
 	public:

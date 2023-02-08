@@ -1,4 +1,5 @@
 #include "../header/Bureaucrat.class.hpp"
+#include "../header/Form.class.hpp"
 #include <exception>
 
 void try_catch(int grade, int test)

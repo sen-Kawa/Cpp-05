@@ -1,23 +1,24 @@
 #include "../header/Bureaucrat.class.hpp"
+#include "../header/Form.class.hpp"
 #include <exception>
 
 void try_catch(int grade, int test);
 void overload(void);
+void overload_form(void);
 void decrement(void);
 void increment(void);
 void instantiation(void);
+void instantiation_form(void);
+void signed_test(void);
 
 void menu(void)
 {
 	std::cout
-	<< "\n\nMommy, when I grow up, I want to be a bureaucrat!\n"
+	<< "\n\nForm up, maggots!\n"
 	<< "\nBureaucrat UNIT TESTER\n"
 	<< "\nChoose test to run:\n"
-	<< " - [IR] Instantiation range\n"
-	<< " - [O] Printing overload\n"
-	<< " - [D] Decrement\n"
-	<< " - [IN] Increment\n"
-	<< " - [A] All\n"
+	<< " - [B] Bureaucrat tests\n"
+	<< " - [F] Form tests\n"
 	<< " - [E] Exit"
 	<< std::endl;
 }
@@ -30,14 +31,19 @@ int main(void)
 	{
 		menu();
 		getline(std::cin, test);
-		if (test == "IR" || test == "A")
+		if (test == "B")
+		{
 			instantiation();
-		if (test == "O" || test == "A")
 			overload();
-		if (test == "IN" || test == "A")
 			increment();
-		if (test == "D" || test == "A")
 			decrement();
+		}
+		if (test == "F")
+		{
+			instantiation_form();
+			overload_form();
+			signed_test();
+		}
 	}
 	return (0);
 }
