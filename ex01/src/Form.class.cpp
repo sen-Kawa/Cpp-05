@@ -30,7 +30,7 @@ void Form::beSigned(Bureaucrat &bureau)
 	return ;
 }
 
-Form::Form(void) : name("Default"), execute_grade(75), sign_grade(1)
+Form::Form(void) : name("Default Form"), execute_grade(75), sign_grade(1)
 {
 	return ;
 }
@@ -40,15 +40,15 @@ Form::Form(const std::string name, const int sign_grade, const int execute_grade
 	return ;
 }
 
-Form::Form(Form const &src)
+Form::Form(Form const &src) : name(src.name), sign_grade(src.sign_grade), execute_grade(src.execute_grade)
 {
-	*this = src;
+	this->if_signed = src.if_signed;
 	return ;
 }
 
 Form& Form::operator=(const Form &assign)
 {
-	this->grade = assign.grade;
+	this->if_signed = assign.if_signed;
 	return (*this);
 }
 
@@ -59,7 +59,15 @@ Form::~Form(void)
 
 std::ostream& operator<<(std::ostream &o, Form const &i)
 {
-	o << i.getName() 
-	<< ", bureaucrat grade " << i.getGrade();
+	std::string	status;
+
+	if (i.getIfSigned() == 0)
+		status = "not signed";
+	else if (i.getIfSigned() == 1)
+		status = "signed";
+	o << i.getName() << ", is " << status 
+	<< "Signing grade "<< i.getSignGrade()
+	<< "Executing grade "<< i.getExecuteGrade()
+	<< std::endl;
 	return (o);
 }
