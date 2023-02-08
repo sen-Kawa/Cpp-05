@@ -1,24 +1,25 @@
 #include "../header/Bureaucrat.class.hpp"
-#include "../header/Form.class.hpp"
+#include "../header/AForm.class.hpp"
+#include "../header/ShrubberyCreationForm.class.hpp"
 #include <exception>
 
-void try_catch(int grade, int test);
-void overload(void);
-void overload_form(void);
-void decrement(void);
-void increment(void);
-void instantiation(void);
-void instantiation_form(void);
-void signed_test(void);
+void shrubberyTest(void)
+{
+	ShrubberyCreationForm	formi("moon");	
+	Bureaucrat				bureau("bureau", 5);
+
+	bureau.executeForm(formi);
+	return ;
+}
 
 void menu(void)
 {
 	std::cout
-	<< "\n\nForm up, maggots!\n"
 	<< "\nBureaucrat UNIT TESTER\n"
 	<< "\nChoose test to run:\n"
-	<< " - [B] Bureaucrat tests\n"
-	<< " - [F] Form tests\n"
+	<< " - [S] Shrubbery Creation Form\n"
+	<< " - [R] Robotomy Request Form\n"
+	<< " - [P] Presidential Pardon Form\n"
 	<< " - [E] Exit"
 	<< std::endl;
 }
@@ -31,18 +32,9 @@ int main(void)
 	{
 		menu();
 		getline(std::cin, test);
-		if (test == "B")
+		if (test == "S")
 		{
-			instantiation();
-			overload();
-			increment();
-			decrement();
-		}
-		if (test == "F")
-		{
-			instantiation_form();
-			overload_form();
-			signed_test();
+			shrubberyTest();
 		}
 	}
 	return (0);
