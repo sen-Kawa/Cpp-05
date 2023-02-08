@@ -30,6 +30,11 @@ void AForm::beSigned(Bureaucrat &bureau)
 	return ;
 }
 
+void AForm::executeCheck(const Bureaucrat &executor) const
+{
+
+}
+
 AForm::AForm(void) : name("Default AForm"), sign_grade(75), execute_grade(1), if_signed(false)
 {
 	return ;

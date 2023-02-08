@@ -22,12 +22,15 @@ class AForm
 
 	public:
 
-		std::string	getName(void) const;
-		bool		getIfSigned(void) const;
-		int			getSignGrade(void) const;
-		int			getExecuteGrade(void) const;
+		std::string		getName(void) const;
+		bool			getIfSigned(void) const;
+		int				getSignGrade(void) const;
+		int				getExecuteGrade(void) const;
 		
-		void		beSigned(Bureaucrat &bureau);
+		void			beSigned(Bureaucrat &bureau);
+
+		void			executeCheck(Bureaucrat const &executor) const;
+		virtual void	execute(Bureaucrat const &executor) const = 0;
 
 		AForm(void);
 		AForm(const std::string name, const int sign_grade, const int execute_grade);
@@ -50,6 +53,15 @@ class AForm
 				virtual const char* what() const throw()
 				{
 					return ("Grade too low.");
+				}
+		};
+
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Form not signed.");
 				}
 		};
 };
