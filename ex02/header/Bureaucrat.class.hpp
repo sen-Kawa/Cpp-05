@@ -13,8 +13,8 @@ class Bureaucrat
 
 		const std::string	name;
 		int					grade;
-		static const int			max_grade = 1;
-		static const int			min_grade = 150;
+		static const int	max_grade = 1;
+		static const int	min_grade = 150;
 		
 	public:
 
@@ -24,6 +24,7 @@ class Bureaucrat
 		void		incrementGrade(void);
 		void		decrementGrade(void);
 		void		signForm(AForm &form);
+		void		executeForm(AForm const &form);
 
 		Bureaucrat(void);
 		Bureaucrat(std::string name, int grade);

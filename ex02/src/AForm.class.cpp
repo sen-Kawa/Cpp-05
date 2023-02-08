@@ -32,19 +32,10 @@ void AForm::beSigned(Bureaucrat &bureau)
 
 void AForm::executeCheck(const Bureaucrat &executor) const
 {
-	try
-	{
-		if (this->if_signed == false)
-			throw AForm::FormNotSignedException();
-		if (executor.getGrade() > execute_grade)
-			throw AForm::GradeTooLowException();
-		execute(executor);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << "Couldn't execute due to: "
-		<< e.what() << std::endl;
-	}
+	if (this->if_signed == false)
+		throw AForm::FormNotSignedException();
+	if (executor.getGrade() > execute_grade)
+		throw AForm::GradeTooLowException();
 }
 
 AForm::AForm(void) : name("Default AForm"), sign_grade(75), execute_grade(1), if_signed(false)
