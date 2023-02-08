@@ -65,9 +65,10 @@ std::ostream& operator<<(std::ostream &o, Form const &i)
 		status = "not signed";
 	else if (i.getIfSigned() == 1)
 		status = "signed";
+
 	o << i.getName() << ", is " << status 
-	<< "Signing grade "<< i.getSignGrade()
-	<< "Executing grade "<< i.getExecuteGrade()
+	<< ", the signing grade is "<< i.getSignGrade()
+	<< ", the executing grade is "<< i.getExecuteGrade()
 	<< std::endl;
 	return (o);
 }

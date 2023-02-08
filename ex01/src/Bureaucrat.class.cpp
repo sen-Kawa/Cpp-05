@@ -28,6 +28,22 @@ void Bureaucrat::decrementGrade(void)
 	return ;
 }
 
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		if (form.getIfSigned() == 1)
+			std::cout << name << "signed " << form.getName();
+	}
+	catch (std::exception &e)
+	{
+		std::cout
+		<< name << "couldn't sign " << form.getName()
+		<< " because " << e.what() << std::endl;
+	}
+}
+
 Bureaucrat::Bureaucrat(void) : name("Default"), grade(1)
 {
 	return ;

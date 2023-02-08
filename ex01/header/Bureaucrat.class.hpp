@@ -1,7 +1,11 @@
 #ifndef BUREAUCRAT_CLASS_HPP
 # define BUREAUCRAT_CLASS_HPP
 
+#pragma once
 #include <iostream>
+#include "Form.class.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -19,7 +23,7 @@ class Bureaucrat
 		
 		void		incrementGrade(void);
 		void		decrementGrade(void);
-		void		signForm(void);
+		void		signForm(Form &form);
 
 		Bureaucrat(void);
 		Bureaucrat(std::string name, int grade);
