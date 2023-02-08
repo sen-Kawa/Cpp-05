@@ -2,6 +2,7 @@
 # define SHRUBBERYCREATIONFORM_CLASS_HPP
 
 #include "AForm.class.hpp"
+#include "Bureaucrat.class.hpp"
 #include <iostream>
 
 class ShrubberyCreationForm : public AForm
@@ -12,6 +13,8 @@ class ShrubberyCreationForm : public AForm
 	public:
 
 		std::string	getTarget(void) const;
+
+		virtual void	execute(Bureaucrat const &executor) const;
 
 		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(const std::string target);
