@@ -10,10 +10,11 @@ std::string RobotomyRequestForm::getTarget(void) const
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
 	(void) executor;
+	int	random = std::rand() % 2;
 	std::cout << "Some drilling noises." << std::endl;
-	if ((std::rand() % 2) == 1) 
+	if (random == 1) 
 		std::cout << target << " has been robotomized succesfully." << std::endl;
-	else if ((std::rand() % 2) == 0) 
+	else if (random == 0) 
 		std::cout << target << " robotomization failed." << std::endl;
 	return ;
 }
