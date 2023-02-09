@@ -5,12 +5,11 @@
 
 class Intern
 {
-	private:
-
-
 	public:
 
-		int	getIntern(void) const;
+		void	makeForm(std::string form, std::string target);
+
+		int		getIntern(void) const;
 
 		Intern(void);
 		Intern(Intern const &src);
