@@ -26,12 +26,12 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 	return ;	
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyCreationForm", 145, 137), target("space")
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Shrubbery creation form", 145, 137), target("space")
 {
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("ShrubberyCreationForm", 145, 137), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("Shrubbery creation form", 145, 137), target(target)
 {
 	return ;
 }

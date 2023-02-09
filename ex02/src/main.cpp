@@ -5,11 +5,29 @@
 
 void shrubberyTest(void)
 {
-	ShrubberyCreationForm	formi("moon");	
-	Bureaucrat				bureau("bureau", 120);
+	int	i = 0;
+	int	grades[3] = {150, 140, 100};
+	std::cout
+	<< "** SHRUBBERY TEST **\n" << std::endl;
 
-	bureau.signForm(formi);
-	bureau.executeForm(formi);
+	while (i < 3)
+	{
+		std::cout << "\n  >> TEST " << i << "\n" << std::endl;
+
+		ShrubberyCreationForm	formi("moon");	
+		Bureaucrat				bureau("Bureau", grades[i]);
+		std::cout << formi << std::endl;
+		std::cout << bureau << std::endl;
+
+		std::cout << "\n...signing...\n" << std::endl;
+		bureau.signForm(formi);
+
+		std::cout << "\n...executing...\n" << std::endl;
+		bureau.executeForm(formi);
+		i++;
+	}
+	std::cout
+	<< "\n** END OF SHRUBBERY TEST **\n" << std::endl;
 	return ;
 }
 
