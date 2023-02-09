@@ -1,13 +1,14 @@
 #ifndef INTERN_CLASS_HPP
 # define INTERN_CLASS_HPP
 
+#include "AForm.class.hpp"
 #include <iostream>
 
 class Intern
 {
 	public:
 
-		void	makeForm(std::string form, std::string target);
+		AForm*	makeForm(std::string form, std::string target);
 
 		int		getIntern(void) const;
 
