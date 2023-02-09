@@ -1,8 +1,37 @@
 #include "../header/Bureaucrat.class.hpp"
 #include "../header/RobotomyRequestForm.class.hpp"
+#include "../header/PresidentialPardonForm.class.hpp"
 #include "../header/AForm.class.hpp"
 #include "../header/ShrubberyCreationForm.class.hpp"
 #include <exception>
+
+void presidentialTest(void)
+{
+	int	i = 0;
+	int	grades[3] = {50, 20, 1};
+	std::cout
+	<< "** PRESIDENTIAL TEST **\n" << std::endl;
+
+	while (i < 3)
+	{
+		std::cout << "\n  >> TEST " << i << "\n" << std::endl;
+
+		PresidentialPardonForm	presi("Mango");	
+		Bureaucrat				bureau("Bureau", grades[i]);
+		std::cout << presi << std::endl;
+		std::cout << bureau << std::endl;
+
+		std::cout << "\n...signing...\n" << std::endl;
+		bureau.signForm(presi);
+
+		std::cout << "\n...executing...\n" << std::endl;
+		bureau.executeForm(presi);
+		i++;
+	}
+	std::cout
+	<< "\n** END OF PRESIDENTIAL TEST **\n" << std::endl;
+	return ;
+}
 
 void shrubberyTest(void)
 {
@@ -84,6 +113,8 @@ int main(void)
 			shrubberyTest();
 		if (test == "R")
 			roboTest();
+		if (test == "P")
+			presidentialTest();
 	}
 	return (0);
 }
