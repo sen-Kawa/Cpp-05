@@ -10,8 +10,6 @@ class Intern
 
 		AForm*	makeForm(std::string form, std::string target);
 
-		int		getIntern(void) const;
-
 		Intern(void);
 		Intern(Intern const &src);
 		Intern&	operator=(Intern const &assign);
