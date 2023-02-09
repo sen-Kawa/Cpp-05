@@ -8,8 +8,13 @@ std::string ShrubberyCreationForm::getTarget(void) const
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
+	(void) executor;
 	std::string		out = target + "_shrubbery";
-	std::ofstream	outfile(out);
+	std::ofstream	outfile(out.c_str());
+
+	outfile << "hi" << std::endl;
+
+	outfile.close();
 
 	return ;	
 }
@@ -24,7 +29,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src) : AForm(), target(src.target)
 {
 	*this = src;
 	return ;
@@ -32,6 +37,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src)
 
 ShrubberyCreationForm &	ShrubberyCreationForm::operator=(const ShrubberyCreationForm &assign)
 {
+	this->target = assign.getTarget();
 	return (*this);
 }
 

@@ -6,8 +6,9 @@
 void shrubberyTest(void)
 {
 	ShrubberyCreationForm	formi("moon");	
-	Bureaucrat				bureau("bureau", 5);
+	Bureaucrat				bureau("bureau", 150);
 
+	bureau.signForm(formi);
 	bureau.executeForm(formi);
 	return ;
 }

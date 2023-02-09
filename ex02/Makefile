@@ -12,7 +12,7 @@ OBJ_DIR = ./.build/
 
 LIBS = -lm
 
-SRCS = main.cpp form_tests.cpp tests.cpp tests2.cpp Form.class.cpp Bureaucrat.class.cpp ShrubberyCreationForm.class.cpp
+SRCS = main.cpp AForm.class.cpp Bureaucrat.class.cpp ShrubberyCreationForm.class.cpp
 
 RM = rm -rf
 
