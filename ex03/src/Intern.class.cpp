@@ -37,15 +37,13 @@ AForm* Intern::makeForm(std::string form, std::string target)
 	{
 		if (chosen == NULL)
 			throw Intern::InvalidFormException();
+		std::cout << "Intern creates form " << form << std::endl;
 	} 
 	catch (std::exception &e)
 	{
-	
+		std::cout << "Form not created because: " << e.what() << std::endl;
 	}
-
-
-
-	return ();
+	return (chosen);
 }
 
 Intern::Intern(void)
