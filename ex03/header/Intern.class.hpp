@@ -2,6 +2,7 @@
 # define INTERN_CLASS_HPP
 
 #include "AForm.class.hpp"
+#include <exception>
 #include <iostream>
 
 class Intern
@@ -14,6 +15,16 @@ class Intern
 		Intern(Intern const &src);
 		Intern&	operator=(Intern const &assign);
 		~Intern(void);
+
+		class InvalidFormException : public std::exception
+		{
+			public:
+
+				virtual const char* what() const throw()
+				{
+					return ("Invalid form.");
+				}
+		};
 };
 
 #endif

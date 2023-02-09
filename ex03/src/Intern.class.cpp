@@ -2,6 +2,7 @@
 #include "../header/ShrubberyCreationForm.class.hpp"
 #include "../header/RobotomyRequestForm.class.hpp"
 #include "../header/PresidentialPardonForm.class.hpp"
+#include <exception>
 
 static AForm* makeShrubbery(std::string target)
 {
@@ -21,13 +22,25 @@ static AForm* makePresidential(std::string target)
 AForm* Intern::makeForm(std::string form, std::string target)
 {
 	std::string	types[3] = {"Shrubbery creation", "Robotomy request", "Presidential pardon"};
-	AForm*		(*functionPtr[3])(std::string targett) = {&makeShrubbery, &makeRobotomy, &makePresidential};
+	AForm*		(*functionPtr[3])(std::string target) = {&makeShrubbery, &makeRobotomy, &makePresidential};
 	AForm*		chosen = NULL;
 
 	for (int i = 0; i < 3; i++)
 	{
 		if (form == types[i])
-
+		{
+			chosen = (functionPtr[i])(target);
+			break ;
+		}
+	}
+	try
+	{
+		if (chosen == NULL)
+			throw Intern::InvalidFormException();
+	} 
+	catch (std::exception &e)
+	{
+	
 	}
 
 
