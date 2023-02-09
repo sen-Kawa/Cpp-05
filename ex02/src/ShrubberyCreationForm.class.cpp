@@ -12,8 +12,15 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 	std::string		out = target + "_shrubbery";
 	std::ofstream	outfile(out.c_str());
 
-	outfile << "hi" << std::endl;
-
+	outfile << "       _-_" << std::endl;
+	outfile << "    /~~   ~~\\" << std::endl;
+	outfile << " /~~         ~~\\" << std::endl;
+	outfile << "{               }" << std::endl;
+	outfile << " \\  _-     -_  /" << std::endl;
+	outfile << "   ~  \\\\ //  ~" << std::endl;
+	outfile << "       | |" << std::endl;
+	outfile << "       | |" << std::endl;
+	outfile << "      // \\\\" << std::endl;
 	outfile.close();
 
 	return ;	

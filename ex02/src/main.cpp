@@ -6,7 +6,7 @@
 void shrubberyTest(void)
 {
 	ShrubberyCreationForm	formi("moon");	
-	Bureaucrat				bureau("bureau", 150);
+	Bureaucrat				bureau("bureau", 120);
 
 	bureau.signForm(formi);
 	bureau.executeForm(formi);
@@ -34,9 +34,7 @@ int main(void)
 		menu();
 		getline(std::cin, test);
 		if (test == "S")
-		{
 			shrubberyTest();
-		}
 	}
 	return (0);
 }
