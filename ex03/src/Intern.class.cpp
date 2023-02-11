@@ -6,17 +6,17 @@
 
 static AForm* makeShrubbery(std::string target)
 {
-	return (new ShrubberyCreationForm);
+	return (new ShrubberyCreationForm(target));
 }
 
 static AForm* makeRobotomy(std::string target)
 {
-	return (new RobotomyRequestForm);
+	return (new RobotomyRequestForm(target));
 }
 
 static AForm* makePresidential(std::string target)
 {
-	return (new PresidentialPardonForm);
+	return (new PresidentialPardonForm(target));
 }
 
 AForm* Intern::makeForm(std::string form, std::string target)
@@ -59,6 +59,7 @@ Intern::Intern(Intern const &src)
 
 Intern &	Intern::operator=(const Intern &assign)
 {
+	(void) assign;
 	return (*this);
 }
 

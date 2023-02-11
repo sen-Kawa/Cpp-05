@@ -6,96 +6,35 @@
 #include "../header/Intern.class.hpp"
 #include <exception>
 
-void presidentialTest(void)
-{
-	int	i = 0;
-	int	grades[3] = {50, 20, 1};
-	std::cout
-	<< "** PRESIDENTIAL TEST **\n" << std::endl;
-
-	while (i < 3)
-	{
-		std::cout << "\n  >> TEST " << i << "\n" << std::endl;
-
-		PresidentialPardonForm	presi("Mango");	
-		Bureaucrat				bureau("Bureau", grades[i]);
-		std::cout << presi << std::endl;
-		std::cout << bureau << std::endl;
-
-		std::cout << "\n...signing...\n" << std::endl;
-		bureau.signForm(presi);
-
-		std::cout << "\n...executing...\n" << std::endl;
-		bureau.executeForm(presi);
-		i++;
-	}
-	std::cout
-	<< "\n** END OF PRESIDENTIAL TEST **\n" << std::endl;
-	return ;
-}
-
-void shrubberyTest(void)
-{
-	int	i = 0;
-	int	grades[3] = {150, 140, 100};
-	std::cout
-	<< "** SHRUBBERY TEST **\n" << std::endl;
-
-	while (i < 3)
-	{
-		std::cout << "\n  >> TEST " << i << "\n" << std::endl;
-
-		ShrubberyCreationForm	formi("moon");	
-		Bureaucrat				bureau("Bureau", grades[i]);
-		std::cout << formi << std::endl;
-		std::cout << bureau << std::endl;
-
-		std::cout << "\n...signing...\n" << std::endl;
-		bureau.signForm(formi);
-
-		std::cout << "\n...executing...\n" << std::endl;
-		bureau.executeForm(formi);
-		i++;
-	}
-	std::cout
-	<< "\n** END OF SHRUBBERY TEST **\n" << std::endl;
-	return ;
-}
-
-void roboTest(void)
-{
-	int	i = 0;
-	int	grades[3] = {78, 60, 38};
-	std::cout
-	<< "** ROBOTOMY TEST **\n" << std::endl;
-
-	while (i < 3)
-	{
-		std::cout << "\n  >> TEST " << i << "\n" << std::endl;
-
-		RobotomyRequestForm		robo("Grape");	
-		Bureaucrat				bureau("Bureau", grades[i]);
-		std::cout << robo << std::endl;
-		std::cout << bureau << std::endl;
-
-		std::cout << "\n...signing...\n" << std::endl;
-		bureau.signForm(robo);
-
-		std::cout << "\n...executing...\n" << std::endl;
-		bureau.executeForm(robo);
-		i++;
-	}
-	std::cout
-	<< "\n** END OF ROBOTOMY TEST **\n" << std::endl;
-	return ;
-}
-
 void internTest()
 {
 	Intern	someRandomIntern;
 	AForm*	rrf;
+	AForm*	ppf;
+	AForm*	scf;
+	AForm*	andere;
 
+	std::cout
+	<< "\n** INTERN TEST **\n" << std::endl;
+
+	std::cout << "\n>> Robotomy request\n" << std::endl;
 	rrf = someRandomIntern.makeForm("Robotomy request", "Bender");
+
+	std::cout << "\n>> Presidential pardon\n" << std::endl;
+	ppf = someRandomIntern.makeForm("Presidential pardon", "Banana");
+
+	std::cout << "\n>> Shrubbery creation\n" << std::endl;
+	scf = someRandomIntern.makeForm("Shrubbery creation", "Venus");
+
+	std::cout << "\n>> Andere\n" << std::endl;
+	andere = someRandomIntern.makeForm("Andere", "Apple");
+
+	delete rrf;
+	delete ppf;
+	delete scf;
+	delete andere;
+	std::cout
+	<< "\n** END OF INTERN TEST **\n" << std::endl;
 	return ;
 }
 
@@ -104,9 +43,6 @@ void menu(void)
 	std::cout
 	<< "\nBureaucrat UNIT TESTER\n"
 	<< "\nChoose test to run:\n"
-	<< " - [S] Shrubbery Creation Form\n"
-	<< " - [R] Robotomy Request Form\n"
-	<< " - [P] Presidential Pardon Form\n"
 	<< " - [I] Intern Test\n"
 	<< " - [E] Exit"
 	<< std::endl;
@@ -120,12 +56,6 @@ int main(void)
 	{
 		menu();
 		getline(std::cin, test);
-		if (test == "S")
-			shrubberyTest();
-		if (test == "R")
-			roboTest();
-		if (test == "P")
-			presidentialTest();
 		if (test == "I")
 			internTest();
 	}
