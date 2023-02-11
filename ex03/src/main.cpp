@@ -3,6 +3,7 @@
 #include "../header/PresidentialPardonForm.class.hpp"
 #include "../header/AForm.class.hpp"
 #include "../header/ShrubberyCreationForm.class.hpp"
+#include "../header/Intern.class.hpp"
 #include <exception>
 
 void presidentialTest(void)
@@ -89,6 +90,15 @@ void roboTest(void)
 	return ;
 }
 
+void internTest()
+{
+	Intern	someRandomIntern;
+	AForm*	rrf;
+
+	rrf = someRandomIntern.makeForm("Robotomy request", "Bender");
+	return ;
+}
+
 void menu(void)
 {
 	std::cout
@@ -97,6 +107,7 @@ void menu(void)
 	<< " - [S] Shrubbery Creation Form\n"
 	<< " - [R] Robotomy Request Form\n"
 	<< " - [P] Presidential Pardon Form\n"
+	<< " - [I] Intern Test\n"
 	<< " - [E] Exit"
 	<< std::endl;
 }
@@ -115,6 +126,8 @@ int main(void)
 			roboTest();
 		if (test == "P")
 			presidentialTest();
+		if (test == "I")
+			internTest();
 	}
 	return (0);
 }
